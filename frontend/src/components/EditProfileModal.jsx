@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api/axios';
 import { toast } from 'react-hot-toast';
 import { X, Camera } from 'lucide-react';
 import './EditProfileModal.css';
@@ -29,11 +29,9 @@ const EditProfileModal = ({ user, onClose, onUpdate }) => {
     if (image) formData.append('profileImage', image);
 
     try {
-      const token = localStorage.getItem('token');
-      const res = await axios.put('http://localhost:5000/api/users/profile', formData, {
+      const res = await api.put('/api/users/profile', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${token}`
+          'Content-Type': 'multipart/form-data'
         }
       });
       

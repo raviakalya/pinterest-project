@@ -42,9 +42,7 @@ const PinDetail = ({ user }) => {
     if (!comment.trim()) return;
 
     try {
-      const res = await axios.post(`http://localhost:5000/api/pins/${id}/comment`, { text: comment }, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
+      const res = await api.post(`/api/pins/${id}/comment`, { text: comment });
       setPin({ ...pin, comments: res.data });
       setComment('');
       toast.success('Comment added');

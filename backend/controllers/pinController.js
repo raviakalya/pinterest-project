@@ -4,7 +4,7 @@ const User = require('../models/User');
 exports.createPin = async (req, res) => {
   try {
     const { title, description, category } = req.body;
-    const imageUrl = req.file ? `http://localhost:5000/uploads/${req.file.filename}` : null;
+    const imageUrl = req.file ? req.file.path || req.file.secure_url : null;
 
     if (!imageUrl) {
       return res.status(400).json({ message: 'Image is required' });

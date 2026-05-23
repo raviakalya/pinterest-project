@@ -1,7 +1,7 @@
 const express = require('express');
 const { createPin, getAllPins, getPinById, likePin, commentOnPin, savePin } = require('../controllers/pinController');
 const auth = require('../middleware/authMiddleware');
-const upload = require('../middleware/localUpload');
+const upload = require('../config/cloudinary');
 const router = express.Router();
 
 router.post('/', auth, upload.single('image'), createPin);
