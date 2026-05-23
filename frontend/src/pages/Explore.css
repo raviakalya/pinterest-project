@@ -1,0 +1,107 @@
+.explore-container {
+  padding: 100px 24px 40px;
+}
+
+.explore-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.explore-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.category-tiles {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+.category-tiles::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.category-tile {
+  position: relative;
+  min-width: 160px;
+  height: 100px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.category-tile.active {
+  border: 3px solid var(--text-active);
+  transform: scale(0.95);
+}
+
+.category-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.category-tile:hover img {
+  transform: scale(1.1);
+}
+
+.category-tile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-tile-overlay span {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.explore-content {
+  margin-top: 20px;
+}
+
+.pin-with-category {
+  position: relative;
+}
+
+.pin-category-tag {
+  position: absolute;
+  bottom: 50px;
+  left: 12px;
+  background: rgba(255,255,255,0.9);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.pin-with-category:hover .pin-category-tag {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .category-tile {
+    min-width: 120px;
+    height: 80px;
+  }
+}

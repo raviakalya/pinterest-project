@@ -1,0 +1,126 @@
+.pin-container {
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: relative;
+  break-inside: avoid;
+}
+
+.pin-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+
+.pin-container:hover .pin-image-wrapper {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.pin-image {
+  width: 100%;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.pin-container:hover .pin-image {
+  transform: scale(1.08);
+}
+
+.pin-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.pin-container:hover .pin-overlay {
+  opacity: 1;
+}
+
+.pin-overlay-top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-save {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 28px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn-save:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.pin-overlay-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pin-overlay-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.overlay-icon-btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--text-active);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.overlay-icon-btn:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.pin-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px 4px;
+}
+
+.pin-user-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.pin-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.pin-user-name:hover {
+  text-decoration: underline;
+}
+
