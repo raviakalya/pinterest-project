@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/axios';
 import { ChevronLeft, Download, Heart, MessageCircle, Send } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import './PinDetail.css';
@@ -29,9 +29,7 @@ const PinDetail = ({ user }) => {
   const handleLike = async () => {
     if (!user) return navigate('/login');
     try {
-      const res = await axios.post(`http://localhost:5000/api/pins/${id}/like`, {}, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-      });
+      const res = await api.post(`/api/pins/${id}/like`);
       setPin({ ...pin, likes: res.data });
     } catch (err) {
       toast.error('Failed to like pin');
